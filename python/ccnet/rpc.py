@@ -303,6 +303,10 @@ class CcnetThreadedRpcClient(RpcClientBase):
     def get_all_groups(self, start, limit, source):
         pass
 
+    @searpc_func("objlist", ["int"])
+    def get_ancestor_groups(self, group_id):
+        pass
+
     @searpc_func("objlist", [])
     def get_top_groups(self):
         pass

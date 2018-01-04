@@ -219,6 +219,9 @@ GList *
 ccnet_rpc_get_all_groups (int start, int limit, const char *source, GError **error);
 
 GList *
+ccnet_rpc_get_ancestor_groups (int group_id, GError **error);
+
+GList *
 ccnet_rpc_get_top_groups (GError **error);
 
 GList *

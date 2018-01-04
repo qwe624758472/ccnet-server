@@ -562,7 +562,7 @@ ccnet_group_manager_get_ancestor_groups (CcnetGroupManager *mgr, int group_id)
     GList *ret = NULL;
     CcnetGroup *group = NULL;
 
-    /* group_id is included */
+    /* group_id it self is included */
     while (group_id > 0) {
         group = ccnet_group_manager_get_group (mgr, group_id, NULL);
         if (group) {

@@ -123,5 +123,8 @@ GList *
 ccnet_group_manager_get_child_groups (CcnetGroupManager *mgr, int group_id,
                                       GError **error);
 
+GList *
+ccnet_group_manager_get_ancestor_groups (CcnetGroupManager *mgr, int group_id);
+
 #endif /* GROUP_MGR_H */
 

@@ -253,6 +253,10 @@ ccnet_start_rpc(CcnetSession *session)
                                      "get_all_groups",
                                      searpc_signature_objlist__int_int_string());
     searpc_server_register_function ("ccnet-threaded-rpcserver",
+                                     ccnet_rpc_get_ancestor_groups,
+                                     "get_ancestor_groups",
+                                     searpc_signature_objlist__int());
+    searpc_server_register_function ("ccnet-threaded-rpcserver",
                                      ccnet_rpc_get_group,
                                      "get_group",
                                      searpc_signature_object__int());
@@ -1162,6 +1166,18 @@ ccnet_rpc_get_all_groups (int start, int limit,
     GList *ret = NULL;
 
     ret = ccnet_group_manager_get_all_groups (group_mgr, start, limit, error);
+
+    return ret;
+}
+
+GList *
+ccnet_rpc_get_ancestor_groups (int group_id, GError ** error)
+{
+    CcnetGroupManager *group_mgr =
+        ((CcnetServerSession *)session)->group_mgr;
+    GList *ret = NULL;
+
+    ret = ccnet_group_manager_get_ancestor_groups (group_mgr, group_id);
 
     return ret;
 }
